@@ -9,15 +9,16 @@ public:
             while(!q.empty()&&nums[q.back()]<=nums[i])q.pop_back();
             q.push_back(i);
         }
-        ans.push_back(nums[q.front()]);
        
         for(int i=k;i<nums.size();i++){
+            ans.push_back(nums[q.front()]);
             if((i-q.front())>=k)q.pop_front();
             while(!q.empty()&&nums[q.back()]<=nums[i])q.pop_back();
             q.push_back(i);
-            ans.push_back(nums[q.front()]);
+            
 
         }
+        ans.push_back(nums[q.front()]);
        return ans; 
     }
 };
