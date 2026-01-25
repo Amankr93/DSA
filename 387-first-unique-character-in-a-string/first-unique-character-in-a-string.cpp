@@ -10,13 +10,13 @@ public:
 
             }
             else{
-                while(!q.empty()&&s[q.front()]==s[i])q.pop();
+                while(!q.empty()&&count[s[q.front()]-'a']>1)q.pop();
                 
             }
         }
-        while(!q.empty()&&count[s[q.front()]-'a']>1){
-          q.pop();
-        }
+        // while(!q.empty()&&count[s[q.front()]-'a']>1){
+        //   q.pop();
+        // }
     return q.empty()?-1:q.front();
         
         
