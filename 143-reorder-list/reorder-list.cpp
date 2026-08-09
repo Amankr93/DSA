@@ -26,26 +26,19 @@ public:
         while(temp){
             n++;
             temp = temp->next;
-
-
         }
         int  i= (n+1)/2-1;
         temp = head;
         while(i){
             temp =temp->next;
             i--;
-
         }
-
-        ListNode* head2 = temp->next;
+        ListNode* head2 = NULL;
+        ListNode* tail2 = reverse(temp->next, head2);
         temp->next = NULL;
-        ListNode* head1 = head;
-        ListNode* reversedListHead  = NULL;
-        ListNode* tail2 = reverse(head2, reversedListHead);
         tail2->next = NULL;
-        
-        ListNode* temp2 = reversedListHead ;
-        ListNode* temp1 = head1 ;
+        ListNode* temp2 = head2 ;
+        ListNode* temp1 = head ;
         while(temp1 && temp2){
             ListNode* next1 = temp1->next;
             ListNode* next2= temp2->next;
@@ -54,8 +47,5 @@ public:
             temp1 = next1;
             temp2 = next2;
         }
-        head = head1;
-
-        
     }
 };
