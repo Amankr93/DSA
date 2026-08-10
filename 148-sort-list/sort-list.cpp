@@ -12,31 +12,19 @@ class Solution {
 public:
     ListNode* mergeSorted(ListNode* head1, ListNode* head2){
         ListNode* dummy = new ListNode(-1);
-        ListNode* node1=head1;
-        ListNode* node2=head2;
         ListNode* tail = dummy;
-        while(node1 && node2){
-            if(node1->val < node2->val){
-                tail->next = node1;
-                node1 = node1->next;
-                tail = tail->next;
+        while(head1 && head2){
+            if(head1->val < head2->val){
+                tail->next = head1;
+                head1 = head1->next;
             }
             else{
-                tail->next = node2;
-                node2 = node2->next;
-                tail = tail->next;
+                tail->next = head2;
+                head2 = head2->next;
             }
+            tail = tail->next;
         }
-        while(node1){
-                tail->next = node1;
-                node1 = node1->next;
-                tail = tail->next;
-        }
-        while(node2){
-             tail->next = node2;
-                node2 = node2->next;
-                tail = tail->next;
-        }
+        tail->next = head1? head1 : head2;
         ListNode* head = dummy->next;
         dummy->next= NULL;
         delete dummy;
