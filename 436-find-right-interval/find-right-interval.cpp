@@ -1,13 +1,9 @@
 class Solution {
 public:
     vector<int> findRightInterval(vector<vector<int>>& intervals) {
-        // vector<vector<int>> cp(intervals);
         vector<int> ans(intervals.size());
         int n = intervals.size();
-        // sort(cp.begin(), cp.end());
-        
         unordered_map<int,int> mp;
-        
         for(int i = 0;i<n;i++){
             mp[intervals[i][0]]=i;
         }
