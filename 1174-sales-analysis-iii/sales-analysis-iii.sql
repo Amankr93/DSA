@@ -1,0 +1,2 @@
+# Write your MySQL query statement below
+select product_id, product_name from product where product_id not in(select p.product_id from product as p left join sales as s on s.product_id  = p.product_id where year(s.sale_date ) != 2019 || month(s.sale_date) not between 01 and 03) && product_id in (select distinct product_id from sales)
